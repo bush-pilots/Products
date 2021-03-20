@@ -18,13 +18,9 @@ const queryGetProducts = async (page, count) => {
   const beginIndex = (pageNum - 1) * (countNum) + 1;
   const endIndex = beginIndex + countNum - 1;
 
-  await Product.find({_id: {$gte: beginIndex, $lte: endIndex}}, function(err, results) {
-    if (err) {
-      console.log('error')
-    } else {
-      console.log(results)
-    }
-  })
+  const productList = await Product.find({_id: {$gte: beginIndex, $lte: endIndex}})
+
+  return productList;
 }
 
 module.exports = {
