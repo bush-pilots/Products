@@ -1,12 +1,26 @@
 const express = require('express');
-const morgan = require('morgan')('dev');
-const request = './database/index.js';
-const app = express();
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const database = require('./database/index.js');
 const port = 3000;
+const app = express();
+const {Product} = require('./models/productModel.js')
 
+app.use(express.json());
 
-//app.get('/products', request.getProducts)
+//returns all documents in product collection
+app.get('/products', function(req, res) {
+  Product.find({}, function (err, docs) {
+    if (err) {
+      console.log('error')
+    } else {
+      console.log(docs)
+    }
+  })
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-})
+});
+
+
