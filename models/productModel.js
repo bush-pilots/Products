@@ -1,10 +1,8 @@
-//each schema maps to a collection and defines the shape of the documents within that collection
-//Models - constructors compiled from Schema definitions. An instance of a model is called a document.
 const mongoose = require('mongoose');
 const connection = require('../database/index.js');
 
 const productSchema = new mongoose.Schema({
-  product_id: Number,
+  _id: Number,
   name: String,
   slogan: String,
   description: String,
@@ -13,4 +11,19 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('Product', productSchema)
-module.exports = {Product};
+
+const queryGetProducts = async (page, count) => {
+  const pageNum = parseInt(page) || 1;
+  const countNum = parseInt(count) || 5;
+  const beginIndex = (pageNum - 1) * (countNum) + 1;
+  const endIndex = beginIndex + countNum - 1;
+
+  const productList = await Product.find({_id: {$gte: beginIndex, $lte: endIndex}})
+
+  return productList;
+}
+
+module.exports = {
+  Product,
+  queryGetProducts
+};
