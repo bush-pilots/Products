@@ -9,11 +9,14 @@ const controller = require('./controllers/controller.js')
 
 app.use(express.json());
 
-//returns all documents in product collection
+//retrieves the list of products
 app.get('/products', controller.getProducts);
 
-//returns all details for one product
+//returns the product level information for a specified product id
 app.get('/products/:product_id', controller.getOneProduct);
+
+//returns the id's of products related to the product specified
+app.get('/products/:product_id/related', controller.getRelated);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
