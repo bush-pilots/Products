@@ -15,6 +15,9 @@ app.get('/products', controller.getProducts);
 //returns the product level information for a specified product id
 app.get('/products/:product_id', controller.getOneProduct);
 
+//returns all styles available for a given product
+app.get('/products/:product_id/styles', controller.getStyles);
+
 //returns the id's of products related to the product specified
 app.get('/products/:product_id/related', controller.getRelated);
 

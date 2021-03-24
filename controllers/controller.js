@@ -16,6 +16,12 @@ exports.getOneProduct = async (req, res) => {
   res.send(results);
 };
 
+exports.getStyles = async (req, res) => {
+  const { product_id } = req.params;
+  const results = await products.queryStyles(product_id);
+  res.send('Not implemented');
+}
+
 exports.getRelated = async (req, res) => {
   const { product_id } = req.params;
   const results = await products.queryRelated(product_id);
