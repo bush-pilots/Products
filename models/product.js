@@ -8,6 +8,9 @@ const productSchema = Schema({
   description: String,
   category: String,
   default_price: Number,
+},
+{
+  collection: 'Products'
 });
 
 module.exports = mongoose.model('Product', productSchema);
