@@ -21,6 +21,10 @@ app.get('/products/:product_id/styles', controller.getStyles);
 //returns the id's of products related to the product specified
 app.get('/products/:product_id/related', controller.getRelated);
 
+app.get('/loaderio-ccd15fc3b3e7e4355311a79d9ca3e81c', (req, res) => {
+  res.send('loaderio-ccd15fc3b3e7e4355311a79d9ca3e81c');
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
