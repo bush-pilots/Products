@@ -21,8 +21,8 @@ app.get('/products/:product_id/styles', controller.getStyles);
 //returns the id's of products related to the product specified
 app.get('/products/:product_id/related', controller.getRelated);
 
-app.get('/loaderio-ccd15fc3b3e7e4355311a79d9ca3e81c', (req, res) => {
-  res.send('loaderio-ccd15fc3b3e7e4355311a79d9ca3e81c');
+app.get('/loaderio-53f255475aae8b9229cc655c12771fae', (req, res) => {
+  res.send('loaderio-53f255475aae8b9229cc655c12771fae');
 });
 
 app.listen(port, () => {
