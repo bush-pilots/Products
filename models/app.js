@@ -12,7 +12,7 @@ exports.queryGetProducts = async (page, count) => {
   const beginIndex = (pageNum - 1) * (countNum) + 1;
   const endIndex = beginIndex + countNum - 1;
 
-  return await Product.find({product_id: {$gte: beginIndex, $lte: endIndex}})
+  return await Product.find({product_id: {$gte: beginIndex, $lte: endIndex}}, 'product_id name slogan description category default_price')
 }
 
 //Query returns detailed product data for a single item

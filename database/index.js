@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-mongoose.connect('mongodb://localhost:27017/ProductsDB', {useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect('mongodb://localhost:27017/ProductsDB', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://52.26.243.163:27017/ProductsDB', {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));

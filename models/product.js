@@ -8,6 +8,7 @@ const productSchema = Schema({
   description: String,
   category: String,
   default_price: Number,
+  // tags: { type: [String], index: true},
 },
 {
   collection: 'Products'

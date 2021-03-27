@@ -1,4 +1,3 @@
-// import Product from '../models/productModel.js';
 const products = require('../models/app.js');
 
 
