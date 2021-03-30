@@ -8,10 +8,11 @@ const productSchema = Schema({
   description: String,
   category: String,
   default_price: Number,
-  // tags: { type: [String], index: true},
 },
 {
   collection: 'Products'
 });
+
+productSchema.index({product_id: 1});
 
 module.exports = mongoose.model('Product', productSchema);
